@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admission Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="jquery.js"></script>
+  <script>
+
+function show1()
+ {
+     $("#scholarfile").show("slow");
+	 $("#scholarlabel").show("slow");
+ }
+ function show2()
+ {
+  $("#scholarfile").hide("slow");
+    $("#scholarlabel").hide("slow");
+}
+
+function validname()
+  {
+     var v=document.getElementById("sn").value;
+	 var regex=/[A-Za-z]/;
+	 if(!v.match(regex))
+	 {
+	    var e=document.getElementById("e1");
+	    e1.textContent="Enter alphabets";
+		e1.style.color="red";
+	 }
+	  else{
+	  var e=document.getElementById("e1");
+	    e1.textContent="";
+		}
+	 
+	   
+  }
+   function validname2()
+  {
+     var v=document.getElementById("fn").value;
+	 var regex=/[A-Za-z]/;
+	 if(!v.match(regex))
+	 {
+	    var e=document.getElementById("e1");
+	    e1.textContent="Enter alphabets";
+		e1.style.color="red";
+	 }
+	  else{
+	  var e=document.getElementById("e1");
+	    e1.textContent="";
+		}
+	 
+	   
+  }
+   function validname3()
+  {
+     var v=document.getElementById("mn").value;
+	 var regex=/[A-Za-z]/;
+	 if(!v.match(regex))
+	 {
+	    var e=document.getElementById("e1");
+	    e1.textContent="Enter alphabets";
+		e1.style.color="red";
+	 }
+	 else{
+	  var e=document.getElementById("e1");
+	    e1.textContent="";
+		}
+	 
+	   
+  }
+   function validnumber1()
+  {
+     var v=document.getElementById("roll1").value;
+	 var regex=/[0-9]{5}/;
+	 if(!v.match(regex))
+	 {
+	    var e=document.getElementById("e2");
+	    e2.textContent="Enter valid roll number";
+		e2.style.color="red";
+	 }
+	 else{
+	  var e=document.getElementById("e2");
+	    e2.textContent="";
+		}
+	 
+	   
+  }
+   function validnumber2()
+  {
+     var v=document.getElementById("enroll1").value;
+	 var regex=/[0-9]{10}/;
+	 if(!v.match(regex))
+	 {
+	    var e=document.getElementById("e3");
+	    e3.textContent="Enter valid enrollment number";
+		e3.style.color="red";
+	 }
+	 else{
+	  var e=document.getElementById("e3");
+	    e3.textContent="";
+		}
+	 
+	   
+  }
+  
+  function click1(e)
+  {          
+    
+    $("#but3").hide();
+    $("#but2").show();
+    $("#pan1").show("slow");
+          $("#pan2").hide("slow");
+          $("#pan3").hide("slow");
+    e.style.backgroundColor="aqua";
+	 document.getElementById("button2").style.backgroundColor="#f2f2f2";
+	  document.getElementById("button3").style.backgroundColor="#f2f2f2";
+  }
+   function click2(e)
+  {       
+      
+    $("#but2").hide();
+    $("#but3").show();
+    $("#pan2").show("slow");
+          $("#pan1").hide("slow");
+          $("#pan3").hide("slow");
+     e.style.backgroundColor="aqua";
+	 document.getElementById("button3").style.backgroundColor="#f2f2f2";
+	  document.getElementById("button1").style.backgroundColor="#f2f2f2";
+  }
+   function click3(e)
+  {
+     e.style.backgroundColor="aqua";
+	 document.getElementById("button2").style.backgroundColor="#f2f2f2";
+	  document.getElementById("button1").style.backgroundColor="#f2f2f2";          
+          $("#pan3").show("slow");
+          $("#pan1").hide("slow");
+          $("#pan2").hide("slow");
+          $("#but3").hide();
+          $("#but2").hide();
+  }
+
+    $(document).ready(function() {
+        $(".alldoc").hide();
+        $("#pan2").hide();
+        $("#pan3").hide();
+    });
+
+    function selectcategory()
+    {
+      var cate=document.getElementById("selectcate");
+      var c=cate.options[cate.selectedIndex].value;
+        if(c=="vjnt" || c=="obc" || c="ebc") {
+          $(".alldoc").show("slow");
+		  document.getElementById("rationcard").disabled=false;
+		  document.getElementById("nonCreamyLayer").disabled=false;
+		  document.getElementById("casteCertificate").disabled=false;
+		  document.getElementById("orphancertificate").disabled=true;
+		  
+		  
+        }
+        if(c=="scst") {
+          $(".alldoc").show("slow");
+		  document.getElementById("rationcard").disabled=false;
+		  document.getElementById("nonCreamyLayer").disabled=true;
+		  document.getElementById("casteCertificate").disabled=false;
+		  document.getElementById("orphancertificate").disabled=true;
+		  
+		  
+        }
+        if(c=="select") {
+          $(".alldoc").hide("slow");
+        }
+
+if(c=="open" || c=="minority" || c=="tfws" || c=="ews") {
+          $(".alldoc").show("slow");
+		  //document.getElementById("rationcard").disabled=true;
+		  document.getElementById("nonCreamyLayer").disabled=true;
+		  document.getElementById("casteCertificate").disabled=true;
+		   document.getElementById("incomecertificate").disabled=false;
+		   document.getElementById("orphancertificate").disabled=true;
+        }
+        if(c=="orphan") {
+          $(".alldoc").show("slow");
+		  document.getElementById("rationcard").disabled=true;
+		  document.getElementById("nonCreamyLayer").disabled=true;
+		  document.getElementById("casteCertificate").disabled=true;
+		  document.getElementById("incomecertificate").disabled=true;
+		   document.getElementById("orphancertificate").disabled=false;
+        }
+
+
+        if(c=="open")
+  {
+    document.getElementById("fee1").innerHTML="Total Fees to be Paid: 7550/-"
+  }
+  if(c=="scst")
+  {
+    document.getElementById("fee1").innerHTML="Total Fees to be Paid: 1550/-"
+  }
+  if(c=="vjnt")
+  {
+    document.getElementById("fee1").innerHTML="Total Fees to be Paid: 1550/-"
+  }
+  if(c=="obc")
+  {
+    document.getElementById("fee1").innerHTML="Total Fees to be Paid: 4550/-"
+  }
+  if(c=="tfws")
+  {
+    document.getElementById("fee1").innerHTML="Total Fees to be Paid: 1550/-"
+  }
+   if(c=="orphan")
+  {
+    document.getElementById("fee1").innerHTML="Total Fees to be Paid: 1550/-"
+  }
+  if(c=="ews")
+  {
+    document.getElementById("fee1").innerHTML="Total Fees to be Paid: 4550/-"
+  }
+   if(c=="ebc")
+  {
+    document.getElementById("fee1").innerHTML="Total Fees to be Paid: 4550/-"
+  }
+   if(c=="minority")
+  {
+    document.getElementById("fee1").innerHTML="Total Fees to be Paid: 7550/-"
+  }
+}
+
+    function showdept()
+    {
+      var val=document.getElementById("branch");
+      var b=val.options[val.selectedIndex].value;
+      document.getElementById("brname").innerHTML=" "+b;
+      document.getElementById("bname").innerHTML=" "+b;
+    }
+    function showclass()
+    {
+  var val=document.getElementById("class");
+  var b=val.options[val.selectedIndex].value;
+  var ch=val.options[val.selectedIndex].text;
+  
+  document.getElementById("year1").innerHTML=" "+b;
+  document.getElementById("year2").innerHTML=" "+b;
+  if(ch=="Second year")
+  {
+        document.getElementById("marksObtained3").disabled=true;
+    document.getElementById("marksObtained4").disabled=true;
+    document.getElementById("marksOutOf3").disabled=true;
+    document.getElementById("marksOutOf4").disabled=true;
+    document.getElementById("percentage3").disabled=true;
+  document.getElementById("percentage4").disabled=true;
+  document.getElementById("res3").disabled=true;
+  document.getElementById("res4").disabled=true;
+  document.getElementById("marksheet3").disabled=true;
+  document.getElementById("marksheet4").disabled=true;
+
+  document.getElementById("marksObtained3").value = "";
+    document.getElementById("marksObtained4").value = "";
+    document.getElementById("marksOutOf3").value = "";
+    document.getElementById("marksOutOf4").value = "";
+    document.getElementById("percentage3").value = "";
+  document.getElementById("percentage4").value = "";
+  }
+  else
+  {
+   
+      document.getElementById("marksObtained3").disabled=false;
+   document.getElementById("marksObtained4").disabled=false;
+   document.getElementById("marksOutOf3").disabled=false;
+   document.getElementById("marksOutOf4").disabled=false;
+   document.getElementById("percentage3").disabled=false;
+document.getElementById("percentage4").disabled=false;
+document.getElementById("res3").disabled=false;
+document.getElementById("res4").disabled=false;
+document.getElementById("marksheet3").disabled=false;
+document.getElementById("marksheet4").disabled=false;
+  
+  }
+}
+    function s1()
+    {
+      
+       document.getElementById("marksObtained1").disabled=true;
+       document.getElementById("marksObtained2").disabled=true;
+       document.getElementById("marksOutOf1").disabled=true;
+       document.getElementById("marksOutOf2").disabled=true;
+       document.getElementById("percentage1").disabled=true;
+       document.getElementById("percentage2").disabled=true;
+       document.getElementById("res1").disabled=true;
+       document.getElementById("res2").disabled=true;
+       document.getElementById("marksheet1").disabled=true;
+       document.getElementById("marksheet2").disabled=true;
+
+       document.getElementById("marksObtained1").value="";
+       document.getElementById("marksObtained2").value="";
+       document.getElementById("marksOutOf1").value="";
+       document.getElementById("marksOutOf2").value="";
+       document.getElementById("percentage1").value="";
+       document.getElementById("percentage2").value="";
+    
+    
+    }
+    
+    
+    function s2()
+    {
+    
+     document.getElementById("marksObtained1").disabled=false;
+       document.getElementById("marksObtained2").disabled=false;
+       document.getElementById("marksOutOf1").disabled=false;
+       document.getElementById("marksOutOf2").disabled=false;
+       document.getElementById("percentage1").disabled=false;
+       document.getElementById("percentage2").disabled=false;
+       document.getElementById("res1").disabled=false;
+       document.getElementById("res2").disabled=false;
+       document.getElementById("marksheet1").disabled=false;
+       document.getElementById("marksheet2").disabled=false;
+    }
+
+
+    function previewPhoto(event) {
+    var input = event.target;
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        document.getElementById('previewImage').src = e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  
+  function validphone()
+  {
+  var v=document.getElementById("mobile").value;
+	 var regex=/[0-9]{10}/;
+	 if(!v.match(regex))
+	 {
+	    var e=document.getElementById("e4");
+	    e4.textContent="Enter valid mobile number";
+		e4.style.color="red";
+	 }
+	 else{
+	  var e=document.getElementById("e4");
+	    e4.textContent="";
+		}
+}
+
+function validparentphone() {
+  var v=document.getElementById("parentmobile").value;
+	 var regex=/[0-9]{10}/;
+	 if(!v.match(regex))
+	 {
+	    var e=document.getElementById("e5");
+	    e5.textContent="Enter valid mobile number";
+		e5.style.color="red";
+	 }
+	 else{
+	  var e=document.getElementById("e5");
+	    e5.textContent="";
+		}
+}
+function validaadhar()
+{
+  var v=document.getElementById("acno").value;
+	 var regex=/[0-9]{12}/;
+	 if(!v.match(regex))
+	 {
+	    var e=document.getElementById("e6");
+	    e6.textContent="Enter valid aadhar number";
+		e6.style.color="red";
+	 }
+	 else{
+	  var e=document.getElementById("e6");
+	    e6.textContent="";
+		}
+}
+
+
+function showper(a,b,c)
+{
+   mo=document.getElementById(a).value;
+   mou=document.getElementById(b).value;
+   p=(mo/mou)*100;
+   document.getElementById(c).value=p.toFixed(2)  
+}
+
+    </script>
+  
+    <style>
+        .box{
+      width:925px;
+      height:135px;
+      border:2px solid black;
+      border-color:black;
+      margin-left:300px;
+      margin-top:50px;
+      background-color:aqua;
+    }
+    .box2{
+      width:925px;
+      height:2000px;
+      border-color:black;
+      margin-left:302px;
+      margin-top:0px;
+      background-color:white;
+    }
+    .subbox{
+    margin-left:150px;
+    margin-top:-110px;
+    }
+    h1
+    {
+    margin-top:-30px;
+    }
+    .stuphoto{
+    width:205px;
+    height:255px;
+    margin-left:10px;
+    margin-top:2px;
+    border:2px solid black;
+    border-color:grey;
+    }
+    .studetails{
+    margin-left:230px;
+    margin-top:-250px;
+    }
+    .ph1{
+    margin-left:50px;
+    margin-top:-70px;
+    }
+    
+    .ubutton
+    {
+    width:70px;
+    height:30px;
+    color:white;
+    background-color:blue;
+    border:0px;
+    border-radius:10px;
+    }
+    .rno{
+    margin-left:28px;
+    font-size:18px;}
+    .eno{
+    margin-left:5px;
+    font-size:18px;}
+    .branch1
+    {
+    margin-left:67px;
+    font-size:25px;}
+    .class1
+    {
+    margin-left:80px;
+    font-size:25px;
+    }
+    
+    .l1
+    {
+    font-size:30px;
+    margin-left:310px;
+    }
+    .l2
+    {
+    font-size:30px;
+    margin-left:410px;
+    }
+    .l3
+    {
+    font-size:30px;
+    margin-left:100px;
+    }
+    .l4
+    {
+    font-size:30px;
+    margin-left:230px;
+    }.l5
+    {
+    font-size:20px;
+    margin-left:10px;
+    }
+
+    /* Styling for the image slider */
+.slider-container {
+    margin-top: 100px;
+    position: relative;
+    height: 400px;
+    padding: 0px;
+    background-color: #f2f2f2;
+    
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+}
+
+.slider img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.button, .b1, .b2, .b3  {
+	background-color: #000;
+	color: #FFFFFF;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+}
+
+
+.button3:hover {
+  background-color: #FF5733;
+}
+
+
+input[type="submit"] {
+	background-color: #000;
+	color: #FFFFFF;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover {
+	background-color: #FF5733;
+}
+
+.nav {
+  margin-top: 20px;
+  background-color:#f2f2f2;
+  height:60px;
+  display: block;
+}
+
+.navcon {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #2f2d2d;
+    padding: 10px 20px;
+}
+
+/* Styling for the navbar links */
+.navbar-link {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 5px;
+}
+
+/* Styling for the hover effect on the navbar links */
+.navbar-link:hover {
+    background-color: #FF5733;
+}
+
+
+  </style>
+
+</head>
+<body><br>
+              
+  <div class="container mt-5">
+    <div class="jumbotron text-center">
+      <h1>GOVERNMENT POLYTECHNIC, MIRAJ</h1>
+      <h2>Admission Form for Second and Third Year Students</h2>
+      <div class="slider-container">
+        <div class="slider">
+            <img width="1280" height="1000" src="image1.jpg" alt="Image 1">
+        </div>
+    </div>
+    <div class="navcon">
+            <button class="navbar-link" id="button1" onclick="click1(this)|showb1()" >Personal Details</button>
+            <button class="navbar-link"  id="button2" onclick="click2(this)|showb2()" >Online Payment</button>
+			      <button class="navbar-link"  id="button3" onclick="click3(this)|showb3()" >Form Submission</button>
+    </div>
+</div>
+    
+
+    
+
+    <div class="card">
+      <div class="card-body">
+        <form method="post" action="logic.php" enctype="multipart/form-data">
+            <br><br> 
+
+
+<div id="pan1">
+            <div class="form-section">
+              <div class="stuphoto">
+                <img width="200px" height="250px" id="previewImage">
+              </div>
+                <div class="studetails">
+                <label style="margin-left:10px;font-size:20px;" for="photo">Photo(max <br>size 200kb)</label>
+                <input class="ph1" type="file" name="photo" id="photo" onchange="previewPhoto(event)" accept=".jpg, .png">
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;" for="roll">Roll Number</label>
+                <input style="font-size:20px;" class="rno" type="text" name="roll" id="roll1"required size="29px" maxlength="5" onblur="validnumber1()"><span id="e2"></span>
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;" for="enrollment">Enroll. Number</label>
+                <input style="font-size:20px;" class="eno" type="text" name="enrollment" id="enroll1"required size="29px" maxlength="10" onblur="validnumber2()"><span id="e3"></span>
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;" for="branch">Branch:</label>
+                <select class="branch1" id="branch" name="branch" required  onchange="showdept()">
+                  <option value="">Select Branch</option>
+                  <option value="computer engineering">Computer Engg</option>
+                  <option value="polymer engineering">Polymer Engg</option>
+                  <option value="mechanical engineering">Mechanical Engg</option>
+                  <option value="civil engineering">Civil Engg</option>
+                  <option value="medical Electronics">Medical Electronics Engg</option>
+                </select>
+                <br><br>
+                 <label style="margin-left:10px;font-size:20px;" for="class">Class:</label>
+                <select class="class1" id="class" name="class" onchange="showclass()">
+                  <option value="">Select Class</option>
+                  <option value="Second year">Second year</option>
+                  <option value="Third year">Third year</option>
+                  
+                </select>
+                </div>
+                
+                <br><br>
+                <div class="jumbotron text-center">
+                <h1><b> Application Form</b></h1>
+                <label><b>for Admission to <label id="year1"></label> diploma in <label id="brname"> </label></b></label>
+                <label><b>for the academic year 2023-24 </b></label>               
+                </div>
+                <label class="l5"> Respected Sir, I herewith apply for the admission to <label id="year2"></label> Diploma in <label id="bname"></label><br>       <hspace> for the academic year 2023-24.My particulars are as below</label>
+
+                    <br><br><br>
+                    
+                <label style="margin-left:10px;font-size:20px;"><b>A)Personal Details</b></label><br><br>
+                <label style="margin-left:10px;font-size:20px;" for="fullname">1) Full Name (Capital)</label>
+                <input style="margin-left:10px;font-size:20px;" size="15px" type="text" placeholder="Surname" id="sn" onblur="validname()" name="sname" required>
+                <input style="margin-left:10px;font-size:20px;" size="15px" type="text" placeholder="Firstname" id="fn" required onblur="validname2()" name="fname">
+                <input style="margin-left:10px;font-size:20px;" size="15px" type="text" placeholder="Middlename" id="mn"required onblur="validname3()" name="mname"><span id="e1"></span>
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;"for="gender">2) Select Gender</label>
+                <select style="margin-left:50px;font-size:20px;" class="" id="gender" name="gender" required>
+                  <option value="">Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;" for="mobile">3) Mobile Number</label>
+                <input style="margin-left:34px;font-size:20px;" type="text" id="mobile" name="mobile" maxlength="10" onkeyup="validphone()" required>
+                <span id="e4"></span>
+                <br><br>
+                
+              
+              </div>
+          <hr>
+              <div class="form-section">
+                <label style="margin-left:10px;font-size:20px;"><b>B) Permanent Address</b></label>
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;"  for="line1" >1) Address Line 1</label>
+                <input style="margin-left:10px;font-size:20px;" type="text" id="line1" name="line1" required size="26px">
+                <label style="margin-left:10px;font-size:20px;" for="line2">2) Address Line 2</label>
+                <input style="margin-left:10px;font-size:20px;" type="text" id="line2" name="line2" size="26px">
+                <br><br><br>
+                <label style="margin-left:10px;font-size:20px;" for="taluka" >3) Taluka:</label>
+                <input style="margin-left:10px;font-size:20px;" type="text" id="taluka" name="taluka" required size="8px">
+                 <label style="margin-left:10px;font-size:20px;" for="district">4) District:</label>
+                <input style="margin-left:10px;font-size:20px;" type="text" id="district" name="district" required size="8px">
+                <label style="margin-left:10px;font-size:20px;" for="pincode">5) Pin Code:</label>
+                <input style="margin-left:10px;font-size:20px;" type="text" id="pincode" name="pincode" required size="8px">
+                <label style="margin-left:10px;font-size:20px;" for="state">7) State:</label>
+                <input style="margin-left:10px;font-size:20px;" type="text" id="state" name="state" required size="8px">
+               
+                <br><br>
+                
+              </div>
+              <hr>
+          
+              <div class="form-section">
+                <label style="margin-left:10px;font-size:20px;"><b>C) Parent Details</b></label>
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;" for="parentname">1) Student Insurance Nominee Name<br>Parents/Father/Mother</label>
+                <input style="margin-left:20px;font-size:20px;" class="p1" type="text" id="parentname" name="parentname" required>
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;" for="parentmobile">2) Mobile Number:</label>
+                <input style="margin-left:175px;font-size:20px;" class="p2" type="text" id="parentmobile" name="parentmobile" maxlength="10" onkeyup="validparentphone()" required>
+                <span id="e5"></span>
+                <br><br>
+              </div>
+          <hr>
+              <div class="form-section">
+              <label style="margin-left:10px;font-size:20px;" id="dsy1"><b>Are you Direct Second Year Student?</b></label>
+              <input style="font-size:15px;" type="radio" id="r1" name="yearselect" value="DSY" onclick="s1()" required><b>DSY</b>
+              <input style="font-size:15px;" type="radio" id="r2" name="yearselect" value="Regular" onclick="s2()" required><b>Regular</b>
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;"><b>D) Result Pass/Fail/ATKT/Carryon/OTO</b></label>
+                <br><br>
+                <table style="margin-left:10px;" border="1">
+                  <thead>
+                    <tr>
+                      <th>Sr No</th>
+                      <th>Semester</th>
+                      <th>Marks Obtained</th>
+                      <th>Marks Out Of</th>
+                      <th>Percentage</th>
+                      <th>Result</th>
+                      <th>Upload Marksheet</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><label>1)</label></td>
+                      <td><label>Sem 1</label></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="marksObtained1" name="marksObtained1" size="10px" ></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="marksOutOf1" name="marksOutOf1" size="10px" onkeyup="showper('marksObtained1','marksOutOf1','percentage1')"></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="percentage1" name="percentage1" size="10px" ></td>
+                      <td><select id="res1" name="res1" style="margin-left:5px;font-size:20px">
+                      <option value=""></option>
+                      <option value="pass">Pass</option>
+					  <option value="fcwithdisti">First Class Dist.</option>
+					  <option value="fc">First Class</option>
+					  <option value="sc">Second Class</option>
+                      <option value="fail">Fail</option>
+                      <option value="atkt">ATKT</option>
+                      <option value="carryon">Carryon</option>
+                      <option value="oto">OTO</option>
+                      </td>
+                      <td><input type="file" name="sem1doc" id="marksheet1" accept=".pdf, .doc, .docx"></td>
+                    </tr>
+                    <tr>
+                      <td><label>2)</label></td>
+                      <td><label>Sem 2</label></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="marksObtained2" name="marksObtained2" size="10px"></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="marksOutOf2" name="marksOutOf2" size="10px" onkeyup="showper('marksObtained2','marksOutOf2','percentage2')"></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="percentage2" name="percentage2" size="10px"></td>
+                      <td><select id="res2" name="res2" style="margin-left:5px;font-size:20px">
+                      <option value=""></option>
+                      <option value="pass">Pass</option>
+					  <option value="fcwithdisti">First Class Dist.</option>
+					  <option value="fc">First Class</option>
+					  <option value="sc">Second Class</option>
+                      <option value="fail">Fail</option>
+                      <option value="atkt">ATKT</option>
+                      <option value="carryon">Carryon</option>
+                      <option value="oto">OTO</option>
+                      </td>
+                      <td><input type="file"  name="sem2doc" id="marksheet2" accept=".pdf, .doc, .docx"></td>
+                    </tr>
+                    <tr>
+                      <td><label>3)</label></td>
+                      <td><label>Sem 3</label></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="marksObtained3" name="marksObtained3" size="10px"></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="marksOutOf3" name="marksOutOf3" size="10px" onkeyup="showper('marksObtained3','marksOutOf3','percentage3')"></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="percentage3" name="percentage3" size="10px"></td>
+                      <td><select id="res3" name="res3" style="margin-left:5px;font-size:20px">
+                      <option value=""></option>
+                      <option value="pass">Pass</option>
+					  <option value="fcwithdisti">First Class Dist.</option>
+					  <option value="fc">First Class</option>
+					  <option value="sc">Second Class</option>
+                      <option value="fail">Fail</option>
+                      <option value="atkt">ATKT</option>
+                      <option value="carryon">Carryon</option>
+                      <option value="oto">OTO</option>
+                      </td>
+                      <td><input type="file" name="sem3doc" id="marksheet3" accept=".pdf, .doc, .docx"></td>
+                    </tr>
+                    <tr>
+                      <td><label>4)</label></td>
+                      <td><label>Sem 4</label></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px" id="marksObtained4" name="marksObtained4" size="10px"></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px;" id="marksOutOf4" name="marksOutOf4" size="10px" onkeyup="showper('marksObtained4','marksOutOf4','percentage4')"></td>
+                      <td><input type="text" style="margin-left:5px;font-size:12px"  id="percentage4" name="percentage4" size="10px"></td>
+                      <td><select id="res4" name="res4" style="margin-left:5px;font-size:20px">
+                      <option value=""></option>
+                      <option value="pass">Pass</option>
+					  <option value="fcwithdisti">First Class Dist.</option>
+					  <option value="fc">First Class</option>
+					  <option value="sc">Second Class</option>
+                      <option value="fail">Fail</option>
+                      <option value="atkt">ATKT</option>
+                      <option value="carryon">Carryon</option>
+                      <option value="oto">OTO</option>
+                      </td>
+                      
+                      <td><input type="file" name="sem4doc" id="marksheet4" accept=".pdf, .doc, .docx"></td>
+                    </tr>
+          
+                  </tbody>
+                </table>
+              </div>
+          <br><br>
+          <hr>
+          
+              <div class="form-section">
+                <label style="margin-left:10px;font-size:20px;"><b>E) Select category</b></label>
+                <select style="margin-left:10px;font-size:20px" id="selectcate" name="selectcate" required onchange="selectcategory()">
+                  <option value="select">---Select---</option>
+                  <option value="open">Open</option>
+                  <option value="ebc">EBC</option>
+                  <option value="scst">SC/ST</option>
+                  <option value="vjnt">VJ/NT/SBC</option>
+                  <option value="obc">OBC</option>
+				 
+				  <option value="tfws">TFWS</option>
+				  <option value="ews">EWS</option>
+				  <option value="orphan">Orphan</option>
+				  
+				  <option value="minority">Minority</option>
+                </select>
+                <br><br>
+                <table style="margin-left:10px;" border="1" class="alldoc">  
+                  <thead>
+                    <tr>
+                      <th>Sr No</th>
+                      <th>Document Type</th>
+                      <th>Upload Document</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Caste Certificate (Upload caste certificate other than open)</td>
+                      <td><input type="file" name="doc1" id="casteCertificate" accept=".pdf, .doc, .docx"></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Non-Creamy Layer Certificate (For OBC/VJNT/SBC/SEBC)</td>
+                      <td><input type="file" name="doc2" id="nonCreamyLayer" accept=".pdf, .doc, .docx"></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Income Certificate</td>
+                      <td><input type="file" name="doc3" id="incomecertificate" accept=".pdf, .doc, .docx"></td>
+                    </tr>
+					<tr>
+                      <td>4</td>
+                      <td>Ration Card</td>
+                      <td><input type="file" name="doc6" id="rationcard" accept=".pdf, .doc, .docx"></td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Orphan Certificate</td>
+                      <td><input type="file" name="doc7" id="orphancertificate" accept=".pdf, .doc, .docx"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <br><br>
+              <hr>
+              
+               <div class="form-section">
+                <label style="margin-left:10px;font-size:20px;"><b>F) Aadhar Card</b></label>
+                <br><br>
+                <label style="margin-left:10px;font-size:20px;"  for="line1">Aadhar Card No</label>
+                <input style="margin-left:10px;font-size:20px;" type="text" id="acno" name="adharno" required maxlength="12" onkeyup="validaadhar()">
+              <span id="e6">
+                </div>
+                  <br><br>
+
+                  <hr>
+                  <div class="form-section">
+                    <label style="margin-left:10px;font-size:20px;"><b>G) Are you a beneficiary of any scholarship?</b></label>
+            <input type="radio" name="scholar" id="sr1" value="yes" onchange="show1()" required  style="font-size:20px;margin-left:40px;"><label style="font-size:20px">YES</label>
+            <input type="radio" name="scholar" id="sr2" value="no" onchange="show2()" checked style="font-size:20px;margin-left:40px;"><label style="font-size:20px">NO</label>
+                    <br><br>
+                    <label style="margin-left:10px;font-size:20px;"  id="scholarlabel" for="scholarfile">Upload Scholarship Document</label>
+                    <input style="margin-left:10px;font-size:20px;" type="file" id="scholarfile" name="doc4">
+                  
+          </div>
+		  <hr>
+                  <div class="form-section">
+                    <label style="margin-left:10px;font-size:20px;"><b>H) FEE RECEIPT</b></label>
+            <br>
+                    <label style="margin-left:10px;font-size:20px;"  id="feerec" for="feereceiptfile">Upload Previous years fee receipt</label>
+                    <input style="margin-left:40px;font-size:20px;" type="file" id="feereceiptfile" name="doc5">
+                  
+          </div>
+
+                </div>
+        </div>
+        <div id="pan2"><hr>
+          <div class="form-section">
+            <label style="margin-left:10px;font-size:20px;"><b>G) Online Payment - Scan QR for payment</b></label>
+            <br><br>
+            <center>
+              <img src="feereal.jpg" width="400px" height="400px">
+            </center>
+    <br>
+    <br>
+    <p style="color:red;margin-left:20px;font-size:20px;">Note: Before doing payment check the fee structure shown in above picture</p>
+            <img width="200px" height="250px" src="finalQR.jpg">
+            <table style="margin-left: 250px;margin-top:-400px;" border="0" cellpadding="10px">
+            
+            <br><br><br>
+  <tr>                 
+   <td><label style="margin-left:10px;font-size:20px;" for="refid" >1) UTR Refrance ID:</label></td>
+            <td><input style="margin-left:10px;font-size:20px;" type="text" id="refid" name="refid" required> </td>
+    </tr>
+            <br><br>
+    <tr>
+            <td> <label style="margin-left:10px;font-size:20px;" for="accname">2) Account Holder Full Name</label></td>
+            <td><input style="margin-left:10px;font-size:20px;" type="text" id="accname" name="accname" required></td>
+    </tr>
+            <br><br>
+    <tr>
+          <td><label style="margin-left:10px;font-size:20px;" for="payssname">3) Payment screen shot(max <br>size 200kb)</label></td>
+          <td><input style="margin-left:10px;font-size:20px;"class="ph1" type="file" name="payssname" id="payssname" accept=".jpg, .png" required></td>
+           </tr>
+   </table>
+            <br><br>
+            <label id="fee1" style="margin-left:50px;font-size:25px;font-style:bold"><b></b></label>
+    <br><br>
+          </div>
+        <br><br><br>
+              </div>
+              <div id="pan3">
+                <center>
+                  <p style="color:red;margin-left:20px;font-size:20px;">Note: Kindly check the entered data in form before submission.<br>Submit the hardcopy to Student Section else admission will be not considered.<br>For any discrepency kindly contact to Student Section</p>
+                  <input class="button button3" type="submit" style="font-size:20px;margin-left:20px;" name="submit" value="Submit & Print" id="subreload">
+                </center>
+              </div>
+              <br><br><br>
+            </form>
+            <script>
+              
+                $(document).ready(function (){
+
+                  $("#scholarfile").hide();
+            $("#scholarlabel").hide();
+
+                  $("#but3").hide();
+                    $("#but2").show();
+                  $("#but2").click(function() {
+                    $("#but2").hide();
+                    $("#but3").show();
+                  });
+
+                  $("#but3").click(function() {
+                    $("#but3").hide();
+                  });
+
+                });
+
+            </script>
+            <button class="navbar-link" id="but2" onclick="click2(this)" >Online Payment</button>
+            <button class="navbar-link" id="but3" onclick="click3(this)" >Form Submission</button>
+          </div>
+    </div>
+    
+  </div>
+  
+  <br><br><br>
+</body>
+</html>

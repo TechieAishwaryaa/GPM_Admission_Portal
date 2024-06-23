@@ -1,6 +1,3 @@
-Certainly! Here's a concise README file script for your project:
-
----
 
 # GPM Admission Portal
 
